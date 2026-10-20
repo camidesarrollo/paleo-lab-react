@@ -124,6 +124,8 @@
   --animate-flicker: flicker 100ms steps(2);
   --animate-sweep: sweep 3s linear infinite;
   --animate-toast-in: toast-in 150ms steps(3);
+  --animate-orbit: orbit 20s linear infinite;
+  --animate-resurrect: resurrect 1.6s steps(16) both;
 
   @keyframes blink {
     50% {
@@ -134,6 +136,24 @@
     50% {
       opacity: 0.4;
       transform: translateX(1px);
+    }
+  }
+  /* Resurrección: la imagen se reconstruye de arriba a abajo, de blanco quemado a color */
+  @keyframes resurrect {
+    from {
+      opacity: 0;
+      filter: grayscale(1) brightness(3) blur(6px);
+      clip-path: inset(0 0 100% 0);
+    }
+    to {
+      opacity: 1;
+      filter: none;
+      clip-path: inset(0 0 0 0);
+    }
+  }
+  @keyframes orbit {
+    to {
+      transform: rotate(360deg);
     }
   }
   @keyframes toast-in {
@@ -171,6 +191,14 @@
 /* Halo de fósforo en texto; usa el color actual, sirve para verde o ámbar */
 @utility glow-text {
   text-shadow: 0 0 6px color-mix(in srgb, currentColor 60%, transparent);
+}
+
+/* Cuadrícula vectorial de 32px del visor CRT */
+@utility crt-grid {
+  background-image:
+    linear-gradient(to right, rgb(0 255 102 / 0.15) 1px, transparent 1px),
+    linear-gradient(to bottom, rgb(0 255 102 / 0.15) 1px, transparent 1px);
+  background-size: 32px 32px;
 }
 
 /* Vidrio CRT: scanlines cada 2px + viñeta radial (sección "CRT Glass Treatment") */

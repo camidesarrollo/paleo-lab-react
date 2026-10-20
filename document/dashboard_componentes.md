@@ -41,6 +41,17 @@ La línea `--color-*: initial;` **borra la paleta por defecto de Tailwind**. As�
 
 La opacidad se aplica con `/`: `border-phosphor/50` es el verde al 50%.
 
+> ⚠️ **Contraste mínimo para texto.** WCAG AA pide al menos **4.5:1** para texto normal. Con los fondos oscuros del sistema:
+>
+> | Color de texto | Contraste | Uso |
+> |---|---|---|
+> | `outline-variant` | ~2:1 ❌ | Solo bordes, líneas y adornos `aria-hidden`. **Nunca texto** |
+> | `outline` | 4.5–6:1 ✅ | Texto secundario más apagado (pero no sobre `surface-container-highest`, que da 3.9:1) |
+> | `on-surface-variant` | 7–11:1 ✅ | Etiquetas y descripciones |
+> | `phosphor`, `secondary`, `error` | 9–14:1 ✅ | Datos y estados |
+>
+> Lighthouse (pestaña de DevTools en Chrome) detecta estos fallos automáticamente.
+
 ### Tipografía
 Un token de texto puede llevar sub-valores con `--`:
 

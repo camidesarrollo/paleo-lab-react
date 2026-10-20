@@ -16,7 +16,7 @@ type ButtonGroupProps<T extends string> = {
 // Es genérico: value solo acepta los valores declarados en options.
 export function ButtonGroup<T extends string>({ label, options, value, onChange }: ButtonGroupProps<T>) {
   return (
-    <div role="group" aria-label={label} className="inline-flex divide-x divide-slate-crt border border-slate-crt">
+    <div role="group" aria-label={label} className="inline-flex flex-wrap divide-x divide-slate-crt border border-slate-crt">
       {options.map((option) => {
         const active = option.value === value
         return (

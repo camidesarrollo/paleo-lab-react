@@ -1,6 +1,6 @@
 // Datos de ejemplo; más adelante pueden venir de una API
 
-export type LogLevel = 'ok' | 'info' | 'warn'
+export type LogLevel = 'ok' | 'info' | 'warn' | 'error'
 
 export type LogEntry = {
   time: string
